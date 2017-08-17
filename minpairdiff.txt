@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main() {
+	//code
+	int t;
+	int n;
+	int i,j;
+	int mindiff;
+	scanf("%d",&t);
+	while(t--){
+	    scanf("%d",&n);
+	    int* arr=(int*)malloc(sizeof(int)*n);
+	    for(i=0;i<n;i++){
+	        scanf("%d",&arr[i]);
+	    }
+	    mindiff=arr[0];
+	    for(i=1;i<n;i++){
+	        if(arr[i]>mindiff){
+	            mindiff=arr[i];
+	        }
+	    }
+	    for(i=0;i<n;i++){
+	       for(j=0;j<n&&j!=i;j++){
+	            if(abs(arr[i]-arr[j])<mindiff){
+	                mindiff=abs(arr[i]-arr[j]);
+	            }  
+	        }
+	    }
+	   	printf("%d\n",mindiff); 
+	}
+
+	return 0;
+}
